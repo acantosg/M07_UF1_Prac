@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">M07_UF1_Prac</string>
+    <string name="title">LIGHT GRID</string>
+    <string name="start">JUGAR</string>
+    <string name="give_up">RENDIRSE</string>
+    <string name="info">¡Deja todas las luces en verde para ganar!\nAl pulsar una luz, las luces adyacentes también cambiarán de color.\n¡Intenta conseguir el tiempo más bajo!</string>
+    <string name="score">Tu tiempo ha sido...</string>
+</resources>
