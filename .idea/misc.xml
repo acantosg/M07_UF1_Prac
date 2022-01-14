@@ -14,16 +14,18 @@
         <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/drawable/test.xml" value="0.2703125" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout-land/game_fragment.xml" value="0.2484375" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout-land/score_fragment.xml" value="0.2484375" />
-        <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout-land/title_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout-land/title_fragment.xml" value="0.36750651607298" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout/fragment_game.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout/fragment_light.xml" value="0.264" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout/fragment_on.xml" value="0.21388888888888888" />
-        <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout/game_fragment.xml" value="0.2302936630602782" />
+        <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout/game_fragment.xml" value="0.176" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout/light_button.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout/light_fragment.xml" value="0.18712574850299402" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout/main_activity.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout/score_fragment.xml" value="0.13218390804597702" />
+        <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout/score_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout/settings_fragment.xml" value="0.1574074074074074" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/layout/title_fragment.xml" value="0.22685185185185186" />
+        <entry key="..\:/Users/angel/AndroidStudioProjects/M07_UF1_Prac/app/src/main/res/xml/root_preferences.xml" value="0.1" />
       </map>
     </option>
   </component>

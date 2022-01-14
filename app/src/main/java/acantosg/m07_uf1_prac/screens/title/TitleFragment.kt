@@ -21,6 +21,11 @@ class TitleFragment : Fragment() {
         val binding = TitleFragmentBinding.inflate(inflater)
         binding.lifecycleOwner = viewLifecycleOwner
 
+        //añadimos la acción de navegación al botón de settings
+        binding.settingsButton?.setOnClickListener {
+            findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToSettingsFragment())
+        }
+
         //añadimos la acción de navegación al botón de empezar el juego
         binding.startButton.setOnClickListener {
             findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
@@ -29,8 +34,9 @@ class TitleFragment : Fragment() {
         //y animamos el botón
         val fadeIn: Animation = AlphaAnimation(0f, 1f)
         fadeIn.interpolator = DecelerateInterpolator()
-        fadeIn.duration = 1000
+        fadeIn.duration = 4000
         binding.startButton.animation = fadeIn
+        binding.settingsButton.animation = fadeIn
 
         return binding.root
     }

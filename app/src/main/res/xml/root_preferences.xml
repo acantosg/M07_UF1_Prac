@@ -1,0 +1,37 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/difficulty_header">
+        <ListPreference
+            app:defaultValue="6"
+            app:entries="@array/boardSize_entries"
+            app:entryValues="@array/boardSize_values"
+            app:key="boardSize"
+            app:title="@string/size_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="Normal"
+            app:entries="@array/complexity_entries"
+            app:entryValues="@array/complexity_values"
+            app:key="complexity"
+            app:title="@string/complexity_title"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Personalización">
+        <CheckBoxPreference
+            app:title="Cronometrar en minutos"
+            app:key="countertype"
+            app:defaultValue="true"
+            app:summaryOn="Minutos y segundos"
+            app:summaryOff="Segundos"
+            app:isPreferenceVisible="true"/>
+
+        <EditTextPreference
+            app:title="Nickname"
+            app:key="nickname"
+            app:defaultValue="Nombre"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -28,6 +28,9 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/titleFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/titleFragment"
@@ -42,6 +45,9 @@
             app:launchSingleTop="true"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_titleFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/scoreFragment"
@@ -53,11 +59,26 @@
             app:destination="@id/gameFragment"
             app:enterAnim="@anim/nav_default_pop_enter_anim"
             app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:launchSingleTop="true"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/titleFragment"
+            app:popUpToInclusive="false" />
         <argument
             android:name="score"
             app:argType="string"
             android:defaultValue="--:--" />
+        <argument
+            android:name="boardSize"
+            app:argType="string"
+            android:defaultValue="6x6" />
+        <argument
+            android:name="complexity"
+            app:argType="string"
+            android:defaultValue="Normal" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="acantosg.m07_uf1_prac.screens.settings.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

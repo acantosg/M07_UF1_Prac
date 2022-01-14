@@ -3,6 +3,12 @@
     <string name="title">LIGHT GRID</string>
     <string name="start">JUGAR</string>
     <string name="give_up">RENDIRSE</string>
+    <string name="settings">AJUSTES</string>
     <string name="info">¡Deja todas las luces en verde para ganar!\nAl pulsar una luz, las luces adyacentes también cambiarán de color.\n¡Intenta conseguir el tiempo más bajo!</string>
-    <string name="score">Tu tiempo ha sido...</string>
+    <string name="nicknameFlavor">, tu tiempo ha sido...</string>
+    <string name="gameModeFlavor">Modo de juego: </string>
+
+    <string name="difficulty_header">Dificultad</string>
+    <string name="size_title">Tamaño del tablero</string>
+    <string name="complexity_title">Complejidad del tablero</string>
 </resources>

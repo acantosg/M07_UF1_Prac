@@ -1,13 +1,23 @@
 package acantosg.m07_uf1_prac.screens.game
 
+import acantosg.m07_uf1_prac.screens.settings.countertype
 import android.os.CountDownTimer
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GameViewModel : ViewModel() {
+class GameViewModel(
+    //tamaño deaseado de la matriz de luces
+    val boardSize: Int,
+    //complejidad del tablero, (afecta el número de luces activadas aleatoriamente el inicio de la partida)
+    val complexity: String) : ViewModel() {
+    private var complexitySetting = when (complexity) {
+        "Baja" -> 12
+        "Alta" -> 4
+        else -> 8
+    }
+    private val complexityFactor = ((boardSize * boardSize) / complexitySetting) + 1
 
-    val size = 6 //tamaño deaseado de la matriz de luces
     var lights: MutableList<MutableList<MutableLiveData<Boolean>>> = mutableListOf() //matriz de luces
 
     //String para mostrar el tiempo de juego
@@ -29,9 +39,9 @@ class GameViewModel : ViewModel() {
         //por cada posición de la matriz, creamos un boolean
         //también tendremos una lista de todas las posiciones de la matriz
         val set: MutableList<Pair<Int, Int>> = mutableListOf()
-        for (i in 0 until size) {
+        for (i in 0 until boardSize) {
             val lightRow = mutableListOf<MutableLiveData<Boolean>>()
-            for (j in 0 until size) {
+            for (j in 0 until boardSize) {
                 set.add(Pair(j, i))
                 lightRow.add(MutableLiveData<Boolean>(true))
             }
@@ -40,7 +50,7 @@ class GameViewModel : ViewModel() {
 
         //simulamos un click en unas cuantas posiciones aleatorias de la matriz
         //esto genera un tablero que siempre posee la misma complejidad y es posible resolver
-        for (i in 0 until (size * size) / 4) {
+        for (i in 0 until complexityFactor) {
             val rand = (Math.random() * set.size).toInt()
             val tile = set[rand]
             onClick(tile.first, tile.second)
@@ -64,12 +74,20 @@ class GameViewModel : ViewModel() {
 
     //pasamos los segundos a String, si es más de 99:59, lo dejamos en --:--
     fun updateTimerText() {
-        if (time >= 60 * 100) {
-            _timerText.value = "--:--"
+        if (countertype) {
+            if (time >= 60 * 100) {
+                _timerText.value = "--:--"
+            } else {
+                val min: Int = time / 60
+                val sec: Int = time % 60
+                _timerText.value = String.format("%02d:%02d", min, sec)
+            }
         } else {
-            val min: Int = time / 60
-            val sec: Int = time % 60
-            _timerText.value = String.format("%02d:%02d", min, sec)
+            if (time >= 60 * 100) {
+                _timerText.value = "-----"
+            } else {
+                _timerText.value = String.format("%05d", time)
+            }
         }
     }
 
@@ -85,7 +103,7 @@ class GameViewModel : ViewModel() {
         )
         for (pair in set) {
             //si la posición no está fuera de la matriz, invertimos la luz
-            if (pair.first >= 0 && pair.second >= 0 && pair.first < size && pair.second < size) {
+            if (pair.first >= 0 && pair.second >= 0 && pair.first < boardSize && pair.second < boardSize) {
                 lights[pair.second][pair.first].value = !(lights[pair.second][pair.first].value ?: false)
             }
         }
