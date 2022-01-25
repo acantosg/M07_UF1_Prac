@@ -23,19 +23,17 @@ class ScoreViewModel : ViewModel() {
 
     private fun getQuote() {
         job = viewModelScope.launch(Dispatchers.IO) {
-            val url = URL("https://zenquotes.io/api/random/")
-            with(url.openConnection() as HttpURLConnection) {
-                var result = ""
-                // !! simplificar a leer solo una linea
-                inputStream.bufferedReader().use {
-                    it.lines().forEach { line ->
-                        result = line
-                    }
+            try {
+                val url = URL("https://zenquotes.io/api/random/")
+                with(url.openConnection() as HttpURLConnection) {
+                    var result = inputStream.bufferedReader().readLine()
+                    result = result.replace(".*q\":\"".toRegex(), "")
+                    result = result.replace("\",\"h.*".toRegex(), "")
+                    val finalResult = result.split("\",\"a\":\"".toRegex())
+                    _quote.value = "${finalResult[0]}\n\t-${finalResult[1]}"
                 }
-                result = result.replace(".*q\":\"".toRegex(), "")
-                result = result.replace("\",\"h.*".toRegex(), "")
-                val finalResult = result.split("\",\"a\":\"".toRegex())
-                _quote.postValue("${finalResult[0]}\n\t-${finalResult[1]}")
+            } catch (ex: Exception) {
+                //si falla la llamada, no pasa nada, simplemente no mostraremos el texto
             }
         }
     }
