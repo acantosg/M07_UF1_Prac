@@ -5,6 +5,9 @@
 
     <data>
         <variable
+            name="viewModel"
+            type="acantosg.m07_uf1_prac.screens.score.ScoreViewModel" />
+        <variable
             name="gamemode"
             type="String" />
         <variable
@@ -31,7 +34,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25" />
+            app:layout_constraintVertical_bias="0.18" />
 
         <TextView
             android:id="@+id/textView2"
@@ -66,6 +69,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scoreTextView" />
+
+        <TextView
+            android:id="@+id/quote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{viewModel.quote}"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/replayButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

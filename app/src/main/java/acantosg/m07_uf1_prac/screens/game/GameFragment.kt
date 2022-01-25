@@ -22,19 +22,18 @@ class GameFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val binding = GameFragmentBinding.inflate(inflater)
+        binding.lifecycleOwner = viewLifecycleOwner
 
         //generamos (o recuperamos) el viewModel
         val application = requireNotNull(activity).application
         val viewModelFactory = GameViewModelFactory(application)
         viewModel = ViewModelProvider(this, viewModelFactory).get(GameViewModel::class.java)
-
-        binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
 
         //generamos un light_fragment por cada posición de la matriz
         val boardSize = viewModel.boardSize
         for (i in 0 until boardSize) {
-            val row = TableRow(context);
+            val row = TableRow(context)
             for (j in 0 until boardSize) {
                 val lightBinding = LightFragmentBinding.inflate(inflater)
                 lightBinding.lifecycleOwner = viewLifecycleOwner
@@ -55,7 +54,7 @@ class GameFragment : Fragment() {
         }
 
         //añadimos la acción de navegación al botón de settings
-        binding.settingsButton?.setOnClickListener {
+        binding.settingsButton.setOnClickListener {
             findNavController().navigate(GameFragmentDirections.actionGameFragmentToSettingsFragment())
         }
 
